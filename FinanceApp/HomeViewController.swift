@@ -5,13 +5,11 @@
 //  Created by Timur Inamkhojayev on 24.03.2024.
 //
 import UIKit
-import CoreData
 
 class HomeViewController: UIViewController {
     
     var budgetLabel: UILabel!
-    var managedObjectContext: NSManagedObjectContext?
-    var operations: [String] = []
+    private let coreManager = CoreManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +20,6 @@ class HomeViewController: UIViewController {
         budgetLabel.translatesAutoresizingMaskIntoConstraints = false
         budgetLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         budgetLabel.textAlignment = .center
-        budgetLabel.text = "Ваш бюджет: " // + Здесь должно быть значение с Локальной БД
         view.addSubview(budgetLabel)
         
         // Ограничения для метки
@@ -31,17 +28,20 @@ class HomeViewController: UIViewController {
             budgetLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         
-        // Получение доступа к контексту CoreData из AppDelegate
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-//        managedObjectContext = appDelegate.persistentContainer.viewContext
+        // Обновляем бюджет
+        updateBudget()
     }
     
     // Обновление бюджета
-    func updateBudget(amount: Double) {
-        // логика обновления бюджета
-        // Например, если amount - это сумма операции, то вы можете вычесть эту сумму из текущего бюджета
-        // После этого обновите текст метки budgetLabel
+    func updateBudget() {
+        let totalAmount = coreManager.transactions.reduce(0) { (result, transaction) in
+            if transaction.operationCategory {
+                return result + Int(transaction.sum)
+            } else {
+                return result - Int(transaction.sum)
+            }
+        }
+        budgetLabel.text = "Ваш бюджет: \(totalAmount)₸"
     }
 }
+

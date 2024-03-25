@@ -7,10 +7,11 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController {
+class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
         generateTabBar()
         setTabBarAppearance()
     }
@@ -81,3 +82,15 @@ class MainTabBarController: UITabBarController {
     }
 }
 
+extension MainTabBarController {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        // Проверка, что выбран контроллер HistoryViewController
+        if let historyVC = viewController as? HistoryViewController {
+            // Здесь вы можете выполнить обновление данных на вкладке "История"
+            historyVC.reloadData()
+        }
+        if let budgetVC = viewController as? HomeViewController {
+            budgetVC.updateBudget()
+        }
+    }
+}
