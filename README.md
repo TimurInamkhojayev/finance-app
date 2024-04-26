@@ -1,5 +1,6 @@
 # FinanceApp
 FinanceApp is a simple personal finance management application developed using **UIKit framework** in Swift. It allows users to track their income and expenses, view transaction history, and manage their budget.
+
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%23FF0000&lines=FINANCE-APP-SWIFT-UIKIT)](https://git.io/typing-svg)
 
 ## Features
