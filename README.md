@@ -48,5 +48,9 @@ Developed by **Timur Inamkhojayev**.
 
 **Screenshots**
 
-![image](https://github.com/timrooter/finance-app-swift-ui-kit/assets/146642629/a96aba7c-655d-4d46-b8ee-2ae687c995c7) ![image](https://github.com/timrooter/finance-app-swift-ui-kit/assets/146642629/6beff317-4527-4fcd-95fd-4f8d7c8da491) ![image](https://github.com/timrooter/finance-app-swift-ui-kit/assets/146642629/6db47bf7-82c0-470e-b060-d6df01bb5072)
+<div style="display: flex;">
+    <img src="https://github.com/timrooter/finance-app-swift-ui-kit/assets/146642629/a96aba7c-655d-4d46-b8ee-2ae687c995c7" alt="image1" style="width: 30%;">
+    <img src="https://github.com/timrooter/finance-app-swift-ui-kit/assets/146642629/6beff317-4527-4fcd-95fd-4f8d7c8da491" alt="image2" style="width: 30%;">
+    <img src="https://github.com/timrooter/finance-app-swift-ui-kit/assets/146642629/6db47bf7-82c0-470e-b060-d6df01bb5072" alt="image3" style="width: 30%;">
+</div>
 
